@@ -1,0 +1,33 @@
+<!-- src/main/resources/templates/peixes/list.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Peixes</title>
+</head>
+<body>
+<h1>Lista de Peixes</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Peso Máximo (kg)</th>
+        <th>Data de Catalogação</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="peixe : ${peixes}">
+        <td th:text="${peixe.nome}"></td>
+        <td th:text="${peixe.descricao}"></td>
+        <td th:text="${peixe.pesoMaximo}"></td>
+        <td th:text="${peixe.dataCatalogacao}"></td>
+        <td>
+            <a th:href="@{/peixes/edit/{id}(id=${peixe.id})}">Editar</a>
+            <a th:href="@{/peixes/delete/{id}(id=${peixe.id})}">Excluir</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

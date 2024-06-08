@@ -1,0 +1,32 @@
+<!-- src/main/resources/templates/peixes/form.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro de Peixe</title>
+</head>
+<body>
+<h1>Cadastro de Peixe</h1>
+<form th:action="@{/peixes}" th:object="${peixe}" method="post">
+    <input type="hidden" th:field="*{id}">
+    <div>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" th:field="*{nome}">
+    </div>
+    <div>
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" th:field="*{descricao}"></textarea>
+    </div>
+    <div>
+        <label for="pesoMaximo">Peso Máximo (kg):</label>
+        <input type="number" id="pesoMaximo" th:field="*{pesoMaximo}">
+    </div>
+    <div>
+        <label for="dataCatalogacao">Data de Catalogação:</label>
+        <input type="date" id="dataCatalogacao" th:field="*{dataCatalogacao}">
+    </div>
+    <div>
+        <button type="submit">Salvar</button>
+    </div>
+</form>
+</body>
+</html>
